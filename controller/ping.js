@@ -1,6 +1,6 @@
 const status = (_, res) => {
   res.send({
-    status: 'ok',
+    status: 'okay',
   });
 };
 module.exports = { status };
