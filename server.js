@@ -4,7 +4,6 @@ const dotenv = require('dotenv').config();
 const cors = require('cors');
 const routes = require('./routes');
 const bodyParser = require('body-parser');
-const helmet = require('helmet');
 const connectDB = require('./config/db');
 const { authorize } = require('./middleware/authMiddleware');
 const { startGraphQlServer } = require('./config/graphqlServer.js');
@@ -15,8 +14,6 @@ const port = process.env.PORT || 3000;
 (async () => {
   try {
     await connectDB();
-    app.use(helmet());
-    app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
     app.use(bodyParser.json());
     app.use(cors({
       origin: '*', 
